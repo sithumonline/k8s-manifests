@@ -1,11 +1,11 @@
 # K8s Manifests 
 
-First Create the namespace:
+First Create the namespace
 ```shell
 kubectl create ns prod -o yaml --dry-run=client > prod-namespace.yaml
 ```
 
-First Create the Code Kitty API Deployment:
+First Create the Code Kitty API Deployment
 ```shell
 kubectl create deployment code-kitty-api --image=ghcr.io/codekittyshow/code-kitty-api:latest -n prod --port 8080 -o yaml --dry-run=client > api/code-kitty-api-deploy.yaml
 ```
@@ -74,9 +74,14 @@ Create service for Code Kitty API Deployment
 kubectl expose deployment/code-kitty-api -n prod
 ```
 
-Create the Code Kitty Frontend Deployment:
+Create the Code Kitty Frontend Deployment
 ```shell
 kubectl create deployment code-kitty-fn --image=ghcr.io/codekittyshow/code-kitty:latest -n prod --port 80 -o yaml --dry-run=client > fn/code-kitty-fn-deploy.yaml
+```
+
+Apply Kitty Frontend Deployment
+```shell
+kubectl apply -f fn
 ```
 
 Create service for Code Kitty Frontend Deployment
