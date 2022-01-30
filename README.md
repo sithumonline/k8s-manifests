@@ -79,7 +79,7 @@ Create the Code Kitty Frontend Deployment
 kubectl create deployment code-kitty-fn --image=ghcr.io/codekittyshow/code-kitty:latest -n prod --port 80 -o yaml --dry-run=client > fn/code-kitty-fn-deploy.yaml
 ```
 
-Apply Kitty Frontend Deployment
+Apply Code Kitty Frontend Deployment
 ```shell
 kubectl apply -f fn
 ```
